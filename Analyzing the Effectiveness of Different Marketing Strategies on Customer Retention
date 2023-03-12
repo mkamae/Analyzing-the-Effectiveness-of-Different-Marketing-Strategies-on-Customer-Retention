@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the data into a pandas dataframe
+df = pd.read_csv('customer_data.csv')
+
+# Create a line chart of the customer retention rates over time
+sns.lineplot(data=df, x='month', y='retention_rate')
+plt.title('Customer retention rates over time')
+plt.xlabel('Month')
+plt.ylabel('Retention rate')
+plt.show()
+
+# Calculate the overall retention rate and average monthly retention rate
+overall_retention_rate = df['retention_rate'].mean()
+average_monthly_retention_rate = df['retention_rate'].sum() / df['retention_rate'].count()
+print('Overall retention rate:', overall_retention_rate)
+print('Average monthly retention rate:', average_monthly_retention_rate)
